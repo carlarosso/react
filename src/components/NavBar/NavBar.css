@@ -5,7 +5,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: -25em;
+  height: 5em;
 }
 
 /* MENU UL */
@@ -23,8 +23,9 @@
 .navList {
   list-style: none;
   display: inline-block;
-  font-weight: 600;
+  font-weight: 500;
   text-transform: uppercase;
+  font-size: 1.5rem;
 }
 
 /* MENU LIST ITEMS */
