@@ -1,0 +1,53 @@
+/* NAV CONTAINER */
+
+.NavContainer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: -25em;
+}
+
+/* MENU UL */
+
+.containerUlMenu {
+  width: 50%;
+}
+
+.nav {
+  display: flex;
+  justify-content: end;
+  margin-right: 1.5em;
+}
+
+.navList {
+  list-style: none;
+  display: inline-block;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+/* MENU LIST ITEMS */
+
+.menuA {
+  text-decoration: none;
+  padding: 0.7em;
+  color: white;
+}
+
+.menuA:hover {
+  color: lightsalmon;
+  cursor: pointer;
+}
+
+/* LOGO IMG */
+
+.imgLogo {
+  width: 50%;
+}
+
+.logoMenu {
+  width: 25%;
+  display: flex;
+  margin-left: 1.5em;
+}
