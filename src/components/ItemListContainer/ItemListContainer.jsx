@@ -2,11 +2,10 @@ import React from 'react'
 import './ItemListContainer.css'
 
 
-
-export const ItemListContainer = () => {
+export const ItemListContainer = ( {saludo} ) => {
   return (
     <div className='containerPropMsg'>
-        <p className='prompMsg'> ¡Hola! Te doy la bienvenida. Esta página está en construcción, pronto tendremos más novedades. </p>
+        <p className='prompMsg'> {saludo} </p>
     </div>
   )
 }

@@ -1,6 +1,7 @@
 import './App.css';
 import NavBar from './components/NavBar/NavBar';
-import ItemListContainer from './components/ItemListContainer/ItemListContainer'
+import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
     return (
@@ -11,7 +12,7 @@ function App() {
         </header>
 
         <body className='bodyApp'>
-            <ItemListContainer />
+            <ItemListContainer saludo="¡Hola! Soy una prop :)" />
         </body>
 
         
