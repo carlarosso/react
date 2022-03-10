@@ -2,6 +2,7 @@ import './App.css';
 import NavBar from './components/NavBar/NavBar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Cards from './components/Cards/Cards';
 
 function App() {
     return (
@@ -12,7 +13,9 @@ function App() {
         </header>
 
         <body className='bodyApp'>
-            <ItemListContainer saludo="¡Hola! Soy una prop :)" />
+            <ItemListContainer titulo="¡Welcome!" saludo="¿What combo are you craving today?" />
+
+            <Cards />
         </body>
 
         

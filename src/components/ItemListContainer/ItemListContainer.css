@@ -1,10 +1,16 @@
-.prompMsg {
+.propMsg {
     color: white;
-    font-size: 1.4em;
+    font-size: 1.8em;
     margin: 0;
-    padding: 100px 0;
+    padding-bottom: 1.5em;
+    padding-top: 0.1em;
 }
 
-.containerPropMsg {
-    margin: 0;
+.title {
+    font-size: 3.5em;
+    color: white;
+    text-transform: uppercase;
+    padding-top: 1em;
+    font-weight: 600;
 }
+

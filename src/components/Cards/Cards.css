@@ -1,0 +1,31 @@
+.cardGroup {
+    display: flex;
+    justify-content: center;
+    margin: 2.5em auto;
+  }
+  
+  .singleCard {
+    width: 400px;
+    display: flex;
+    justify-content: space-between;
+    border: none;
+  }
+  
+  .cardTitle {
+      font-size: 2em;
+      padding: 0.1em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: white;
+  }
+  
+  .cardTitle:hover {
+      color: lightsalmon;
+      cursor: pointer;
+  }
+  
+  .cardBody {
+      padding: 0.5em;
+      background-color: #282c34;
+  
+  }
