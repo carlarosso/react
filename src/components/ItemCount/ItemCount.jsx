@@ -4,18 +4,21 @@ import "./ItemCount.css";
 
 export const ItemCount = ( { stock, initial, onAdd } ) => {
 
-  const [count, setCount] = useState(parseFloat(initial));
+  const initialFloat = parseFloat(initial)
+  const stockFloat = parseFloat(stock)
+
+  const [count, setCount] = useState(initialFloat);
 
 
 
   const handleCountPlus = () => {
-    if (count < parseFloat(stock)) {
+    if (count < stockFloat) {
       setCount(count + 1);
     }
   };
 
   const handleCountLess = () => {
-    if (count > 1) {
+    if (count > initialFloat) {
       setCount(count - 1);
     }
   };
