@@ -6,8 +6,9 @@ import "./Cards.css";
 
 function Cards( {titleCard, cardImg} ) {
   return (
-    <div className="cardGroup">
-      <CardGroup>
+    <>
+      
+      <CardGroup className="cardGroup">
 
         <Card className="singleCard">
 
@@ -23,15 +24,15 @@ function Cards( {titleCard, cardImg} ) {
 
           <Card.Footer className="cardFooter">
 
-            <ItemCount />
+            <ItemCount stock="10" initial="1" onAdd="Su cantidad seleccionada es" />
 
           </Card.Footer>
 
         </Card>
 
       </CardGroup>
-      
-    </div>
+
+    </>
   );
 }
 

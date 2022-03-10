@@ -16,11 +16,11 @@ function App() {
         <body className='bodyApp'>
             <ItemListContainer titulo="¡Welcome!" saludo="¿What combo are you craving today?" />
 
-            <Cards titleCard="El Argento" cardImg={process.env.PUBLIC_URL + "/el-argento.jpg"}/>
+            <Cards titleCard="El Argento" cardImg={process.env.PUBLIC_URL + "/el-argento.jpg"} />
 
-            <Cards titleCard="Marie Antoinette" cardImg={process.env.PUBLIC_URL + "/marie-antoinette.jpg"}/>
+            <Cards titleCard="Marie Antoinette" cardImg={process.env.PUBLIC_URL + "/marie-antoinette.jpg"} />
 
-            <Cards titleCard="Willy Wonka" cardImg={process.env.PUBLIC_URL + "/willy-wonka.jpg"}/>
+            <Cards titleCard="Willy Wonka" cardImg={process.env.PUBLIC_URL + "/willy-wonka.jpg"} />
             
         </body>
 
