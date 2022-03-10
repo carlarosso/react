@@ -1,0 +1,39 @@
+.countContainer {
+    width: 100%;
+}
+
+.countNumber {
+    margin: auto 3.5em;
+    color: white;
+}
+
+.countButton {
+    padding: 0.5em 1em;
+    font-size: 1em;
+    font-weight: 700;
+    color: #282c34;
+    border: none;    
+    border-radius: 50px;
+
+}
+
+.addCartBtn {
+    margin: 2em auto;
+    background-color: lightsalmon;
+    color: #282c34;
+    text-align: center;
+    padding: 10px;
+    width: 200px;
+    font-size: 1em;
+    font-weight: 550;
+    border-radius: 50px;
+    cursor: pointer;
+    border-style: none;
+    transition: all 0.4s ease 0s;
+
+}
+
+.addCartBtn:hover {
+    background-color: white;
+    color: lightsalmon;
+}

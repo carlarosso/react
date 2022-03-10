@@ -24,8 +24,8 @@
       cursor: pointer;
   }
   
-  .cardBody {
+  .cardBody, .cardFooter {
       padding: 0.5em;
       background-color: #282c34;
-  
+      border: none;
   }
