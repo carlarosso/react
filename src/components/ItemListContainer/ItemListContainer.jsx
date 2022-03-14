@@ -1,12 +1,16 @@
 import React from 'react'
+import { useState, useEffect } from 'react'
+import ItemList from '../ItemList/ItemList'
 import './ItemListContainer.css'
 
 
-export const ItemListContainer = ( {saludo, titulo} ) => {
+function ItemListContainer ({}) {
+
+  
+
   return (
-    <div className='containerPropMsg'>
-        <p className='title'> {titulo} </p>
-        <p className='propMsg'> {saludo} </p>
+    <div>
+        <ItemList />
     </div>
   )
 }

@@ -1,0 +1,70 @@
+/* LOADING */
+
+.loading {
+    font-size: 4em;
+    padding: 3em;
+    color: white;
+}
+
+/* CARDS BODY */
+
+.cardGroup {
+    display: inline-flex;
+    justify-content: center;
+    margin: 1.5em;
+    margin-top: 3rem;
+    width: 400px;
+  }
+
+  .cardBody {
+    padding: 0.5em;
+    background-color: #282c34;
+    border: none;
+}
+   
+  .singleCard {
+    width: 400px;
+    display: flex;
+    justify-content: space-between;
+    border: none;
+    background-color: #282c34;
+  }
+
+  .card {
+      border: none!important;
+  }
+
+  /* TITLE */
+  
+  .cardTitle {
+      font-size: 2em;
+      padding: 0.1em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: white;
+      
+  }
+
+  /* IMAGEN */
+
+  .imgProd {
+    width: 350px;
+    height: auto;
+    border-radius: 30px;
+    margin: 1.5rem auto;
+}
+  
+/* PRICE */
+
+  .priceProd {
+      color: white;
+      font-size: 1.5em;
+  }
+  
+ /* FOOTER */
+
+.cardFoot {
+    background-color: #282c34!important;
+    border: none!important;
+ }
+

@@ -9,8 +9,6 @@ export const ItemCount = ( { stock, initial, onAdd } ) => {
 
   const [count, setCount] = useState(initialFloat);
 
-
-
   const handleCountPlus = () => {
     if (count < stockFloat) {
       setCount(count + 1);
