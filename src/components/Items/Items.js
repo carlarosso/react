@@ -5,6 +5,7 @@ const productos = [
   imgAlt : "Argentinian breakfast",
   stock: 15,
   price: "15 CHF",
+  description: "Classic argentinian breakfast"
   },
 
   { id: 2,
@@ -13,6 +14,7 @@ const productos = [
   imgAlt : "Argentinian breakfast",
   stock: 10,
   price: "18 CHF",
+  description: "Let them eat cake"
   },
 
   { id: 3,
@@ -21,6 +23,7 @@ const productos = [
   imgAlt : "Argentinian breakfast",
   stock: 5,
   price: "13 CHF",
+  description: "Full of chocolate"
   }
 ]
 
