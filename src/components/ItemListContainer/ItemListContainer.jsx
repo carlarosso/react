@@ -1,14 +1,57 @@
 import React from 'react'
 import { useState, useEffect } from "react";
-import { getFetch } from '../ItemList/ItemList';
-import Item from '../Items/Items';
+import ItemList from '../ItemList/ItemList';
 import './ItemListContainer.css'
+
+
+// ARRAY DE OBJETOS 
+
+const productos = [
+  { id: 1,
+  name: "El Argento",
+  img: "el-argento.jpg",
+  imgAlt : "Argentinian breakfast",
+  stock: 12,
+  price: 15,
+  description: "Classic argentinian breakfast"
+  },
+
+  { id: 2,
+  name: "Marie Antoinette",
+  img: "/marie-antoinette.jpg",
+  imgAlt : "Argentinian breakfast",
+  stock: 10,
+  price: 18,
+  description: "Let them eat cake"
+  },
+
+  { id: 3,
+  name: "Willy Wonka",
+  img: "/willy-wonka.jpg",
+  imgAlt : "Argentinian breakfast",
+  stock: 5,
+  price: 13,
+  description: "Full of chocolate"
+  },
+  
+]
+
+export const getFetch = new Promise ((resolve, reject) => {
+  let condition = true
+  if (condition) {
+    setTimeout (() => {
+      resolve(productos)
+    }, 2000);
+  } else {
+    reject(console.log("error 404"))
+  }
+})
 
 
 function ItemListContainer ({}) {
 
   const [prods, setProds] = useState([]);
-    const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
 
   
     useEffect(() => {
@@ -22,22 +65,16 @@ function ItemListContainer ({}) {
   return (
     <>
 
-       <h1>Welcome</h1>
 
   {loading ? (
 
     <h2 className="loading"> Loading... </h2>
   ) : (
 
-    prods.map((prod) => (
-      <div className="cardGroup" key={prod.id}>
+    <ItemList data={prods} />
 
-        <Item prod= {prod} />
-       
-       
-      </div>
-    ))
-  )}
+    )
+  }
 
 
 </>

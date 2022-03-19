@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import ItemDetail from "../ItemDetail/ItemDetail";
-import { getFetch } from '../ItemList/ItemList';
+import { getFetch } from "../ItemListContainer/ItemListContainer";
+import ItemDetail from "../ItemDetail/ItemDetail"; 
 
 
 function ItemDetailContainer ({}) {
