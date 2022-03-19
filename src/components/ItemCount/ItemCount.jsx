@@ -4,25 +4,22 @@ import "./ItemCount.css";
 
 export const ItemCount = ( { stock, initial, onAdd } ) => {
 
-  const initialFloat = parseFloat(initial)
-  const stockFloat = parseFloat(stock)
-
-  const [count, setCount] = useState(initialFloat);
+  const [count, setCount] = useState(initial);
 
   const handleCountPlus = () => {
-    if (count < stockFloat) {
+    if (count < stock) {
       setCount(count + 1);
     }
   };
 
   const handleCountLess = () => {
-    if (count > initialFloat) {
+    if (count > initial) {
       setCount(count - 1);
     }
   };
 
   const onAddClick = () => {
-    console.log(` ${onAdd} ${count} `)
+    console.log(`Su cantidad seleccionada es ${count} `)
   }
 
   

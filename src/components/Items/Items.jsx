@@ -1,4 +1,6 @@
-import "./ItemList.css";
+import CardGroup from "react-bootstrap/CardGroup";
+import Card from "react-bootstrap/Card";
+import ItemCount from '../ItemCount/ItemCount';
 
 const productos = [
   { id: 1,
@@ -40,5 +42,36 @@ export const getFetch = new Promise ((resolve, reject) => {
     reject(console.log("error 404"))
   }
 })
+
+
+const Item = ( {prod} ) => {
+
+  const { name, img, imgAlt, price, stock } = prod;
+
+  return (
+
+
+        <CardGroup>
+        <Card className="singleCard, card">
+          <Card.Body className="cardBody">
+              <h2 className="cardTitle">{`${name}`}</h2>
+
+
+            <img src={img} alt={imgAlt} className="imgProd"/>
+
+          <span className="priceProd">{`${price} CHF`}</span>
+          </Card.Body>
+
+          <Card.Footer className="cardFoot" >
+            <ItemCount  stock={stock} initial= { 1 } />
+          </Card.Footer>
+        </Card>
+        </CardGroup>
+
+
+  )
+}
+
+export default Item
 
 
