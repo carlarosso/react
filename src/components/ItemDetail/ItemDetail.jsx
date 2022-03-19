@@ -1,15 +1,18 @@
 
-/* function ItemDetail({prod}) {
+function ItemDetail({prodDetail}) {
+
+  const { name, img, imgAlt, price, description } = prodDetail;
+
+
   return (
-    <div className="prodDetail">
-        <img src={prod.img} alt={prod.imgAlt} className="imgProd"/>
-        <p> {prod.name} </p>
-        <p> {prod.price} </p>
-        <p> {prod.description} </p>
+    <div>
+      <h1> {name} </h1>
+      <img src={img} alt={imgAlt} />
+      <p> {price} </p>
+      <p> {description} </p>
+
     </div>
   )
 }
 
-console.log(ItemDetail)
-
-export default ItemDetail */
+export default ItemDetail

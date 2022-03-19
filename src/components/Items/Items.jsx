@@ -1,6 +1,7 @@
 import CardGroup from "react-bootstrap/CardGroup";
 import Card from "react-bootstrap/Card";
 import ItemCount from '../ItemCount/ItemCount';
+import { Navigate, Route, Routes } from "react-router-dom";
 
 const productos = [
   { id: 1,
@@ -44,6 +45,11 @@ export const getFetch = new Promise ((resolve, reject) => {
 })
 
 
+/* function navigateItemDetail() {
+  <Route path="" element="<NavigateTo='../ItemDetail/ItemDetail'>"/>
+} */
+
+
 const Item = ( {prod} ) => {
 
   const { name, img, imgAlt, price, stock } = prod;
@@ -65,6 +71,9 @@ const Item = ( {prod} ) => {
           <Card.Footer className="cardFoot" >
             <ItemCount  stock={stock} initial= { 1 } />
           </Card.Footer>
+
+          {/* <button onClick={navigateItemDetail}> See more </button> */}
+
         </Card>
         </CardGroup>
 
