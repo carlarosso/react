@@ -1,6 +1,8 @@
 import React from "react";
-import "./NavBar.css";
+import { NavLink, Link } from "react-router-dom";
 import CartWidget from "../CartWidget/CartWidget";
+import ItemDetailContainer from "../ItemDetailContainer/ItemDetailContainer";
+import "./NavBar.css";
 
 
 const NavBar = () => {
@@ -11,8 +13,10 @@ const NavBar = () => {
         
       <div className="imgLogo">
 
-        <img src={process.env.PUBLIC_URL + "/LOGO2-min.png"} alt="Brand Logo" className="logoMenu"/>
-
+        <NavLink to='/'>
+           <img src={process.env.PUBLIC_URL + "/LOGO2-min.png"} alt="Brand Logo" className="logoMenu"/>
+        </NavLink>
+      
       </div>
 
 
@@ -22,10 +26,25 @@ const NavBar = () => {
 
           <li className="navList">
 
-            <a href="#" className="menuA">Home</a>
-            <a href="#" className="menuA">About</a>
-            <a href="#" className="menuA">Our products</a>
-            <a href="#" className="menuA"> <CartWidget/> </a>
+          <NavLink to='/' className="menuA"> 
+            
+            <span className="menuA"> Home </span>
+          
+          </NavLink>
+
+          
+          <NavLink to='categoria/savory' className="menuA"> Savory </NavLink>
+          <NavLink to='categoria/sweet' className="menuA"> Sweet </NavLink>
+          
+             <NavLink to='/detail' element={ <ItemDetailContainer /> }  >  
+                      
+          </NavLink>
+
+          <NavLink to='/cart' className="menuA"> 
+            
+              <CartWidget/>
+            
+          </NavLink>
             
           </li>
 

@@ -14,3 +14,12 @@
     font-weight: 600;
 }
 
+/* CARDS BODY */
+
+.cardGroup {
+    display: inline-flex;
+    justify-content: center;
+    margin: 1.5em;
+    margin-top: 3rem;
+    width: 400px;
+  }

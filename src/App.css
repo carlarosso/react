@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  background-color: #282c34;
+  min-height: 150vh;
 }
 
 .App-logo {
@@ -40,7 +42,3 @@
 
 /* MAIN BODY CSS */
 
-.bodyApp {
-  background-color: #282c34;
-  min-height: 150vh;
-}

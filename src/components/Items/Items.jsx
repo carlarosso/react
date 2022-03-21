@@ -1,40 +1,39 @@
 import CardGroup from "react-bootstrap/CardGroup";
 import Card from "react-bootstrap/Card";
-import ItemCount from '../ItemCount/ItemCount';
 import "./Item.css";
-import { Navigate, Route, Routes } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-
-/* function navigateItemDetail() {
-  <Route path="" element="<NavigateTo='../ItemDetail/ItemDetail'>"/>
-} */
 
 
 const Item = ( {prod} ) => {
 
-  const { name, img, imgAlt, price, stock } = prod;
+  const { id, name, img, imgAlt, price, } = prod;
 
   return (
 
 
         <CardGroup>
-        <Card className="singleCard, card">
-          <Card.Body className="cardBody">
-              <h2 className="cardTitle">{`${name}`}</h2>
+          <Card className="singleCard, card">
+            <Card.Body className="cardBody">
+              <Link to={`detail/${id}`} className="links">    
+                  <h2 className="cardTitle">{`${name}`}</h2>
 
 
-            <img src={img} alt={imgAlt} className="imgProd"/>
+                  <img src={img} alt={imgAlt} className="imgProd"/>
 
-          <span className="priceProd">{`${price} CHF`}</span>
-          </Card.Body>
+                  <div className="priceProd">{`${price} CHF`}</div>
 
-          <Card.Footer className="cardFoot" >
-            <ItemCount  stock={stock} initial= { 1 } />
-          </Card.Footer>
+                    
+                    <button className="addCartBtn"> VIEW MORE </button>
+                  
+                  </Link>
+              
+              </Card.Body>
 
-          {/* <button onClick={navigateItemDetail}> See more </button> */}
+            <Card.Footer className="cardFoot" >
+            </Card.Footer>
 
-        </Card>
+          </Card>
         </CardGroup>
 
 
