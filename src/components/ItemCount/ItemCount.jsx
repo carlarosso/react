@@ -18,13 +18,9 @@ export const ItemCount = ( { stock, initial, onAdd } ) => {
     }
   };
 
-  const onAddClick = () => {
-    console.log(`Su cantidad seleccionada es ${count} `)
-  }
 
-  
 
-  return (
+    return (
     <div className="countContainer">
 
         <button className="countButton" onClick={handleCountPlus}>+</button>
@@ -34,9 +30,9 @@ export const ItemCount = ( { stock, initial, onAdd } ) => {
         <button className="countButton" onClick={handleCountLess}>-</button>
        
          <div>
-        
-            <button onClick={onAddClick} className="addCartBtn"> AGREGAR AL CARRITO </button>
-        
+         
+         <button onClick={onAdd} className="addCartBtn"> ADD TO CART </button> 
+
          </div>
     
     </div>
@@ -44,3 +40,5 @@ export const ItemCount = ( { stock, initial, onAdd } ) => {
 }
 
 export default ItemCount;
+
+
