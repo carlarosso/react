@@ -12,31 +12,35 @@ const ItemDetail = ({prodDetail}) => {
    const {addItem, deleteDuplicates} = useCartContext()
 
 
+   const [buttonType, setButtonType] = useState('buttonInit')
+
+
 
    const onAdd = (cant) => {
-    /* //DEFINIR ESTADO QUE CAPUTRE EL EVENTO Y CAMBIE EL BOTON
-    */
-
-/*     const [ cantidad, setCantidad ] = useState([])
- */
-    
+     
     addItem({ ...prodDetail, cantidad: cant, deleteDuplicates }) 
+
+    setButtonType('cartButton')
+    
 
   }
   
+  
+  const GoCart = () => {
+    return <Link to='/cart'>
+
+     <button className="addCartBtn"> GO TO CART </button> 
+
+    </Link>
+  }
 
 
  
-  const changeBtn = () => {
-    return <Link to='/cart'> 
-        </Link>
-  } 
 
 
   return (
     <>
 
-    {
     
     <div className="itemDetail">
       <h1 > {name} </h1>
@@ -44,17 +48,17 @@ const ItemDetail = ({prodDetail}) => {
       <p > {price} </p>
       <p > {description} </p>
 
+        { buttonType === 'buttonInit' ?
 
-      <ItemCount  stock={stock} initial= { 1 } onAdd= {onAdd} />
+          <ItemCount  stock={stock} initial= { 1 } onAdd= {onAdd} />
 
-      :
-    
-      <button onClick={ changeBtn } className="addCartBtn"> GO TO CART </button> 
-
+          :
+        
+          <GoCart />
+      
+        }
 
     </div>
-
-    }
       </>
 
 
