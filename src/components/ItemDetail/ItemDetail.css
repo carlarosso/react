@@ -1,4 +1,14 @@
 .itemDetail {
+    display: flex;
     color: white;
-    margin-top: 150px;
+}
+
+.itemTitle {
+    width: 100%;
+    display: block;
+}
+
+.detailImg {
+    width: 70%;
+    border-radius: 50%;
 }

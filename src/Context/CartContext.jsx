@@ -14,27 +14,14 @@ export const CartContextProvider = ({ children }) => {
     const addItem=(prod) => {
 
         setCartList([ ...cartList, prod ])
-
+        
     }
 
     const emptyCart = () => {
         setCartList([])
     }
 
-    const deleteDuplicates = (cartList, id) => {
-
-        const findProd = cartList.find((prod) => prod.id === id
-        );
-
-
-        if (findProd) {
-
-            findProd.cantidad += 1
-            setCartList ([...cartList])
-
-        } 
-
-    } 
+    
 
 
 
@@ -43,8 +30,7 @@ export const CartContextProvider = ({ children }) => {
         cartList,
         addItem,
         emptyCart,
-        deleteDuplicates
-    }} > 
+   }} > 
     
         { children } 
     
