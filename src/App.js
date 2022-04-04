@@ -6,8 +6,12 @@ import ItemListContainer from "./components/ItemListContainer/ItemListContainer"
 import "./App.css";
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { getFirestoreApp } from "./Firebase/Config";
 
 function App() {
+
+  getFirestoreApp()
+
   return (
     <BrowserRouter>
         
@@ -21,7 +25,7 @@ function App() {
                       
                           <Route path="/" element={<ItemListContainer />} />
 
-                          <Route path="/categoria/:id" element={<ItemListContainer />} />
+                          <Route path="/categoria/:prodCategoria" element={<ItemListContainer />} />
 
                           <Route path="detail/:prodId" element={<ItemDetailContainer />} />
 
