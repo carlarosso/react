@@ -3,6 +3,35 @@
 }
 
 .imgProdCart {
-    width: 10%;
+    width: 25%;
     border-radius: 50%;
+}
+
+.itemCart {
+    display: inline-flex;
+    align-items: center;
+    margin: 2rem auto;
+}
+
+
+.itemCartDesc {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 50%;
+}
+
+.cartTitle {
+    margin: 5rem auto;
+    color: white
+}
+
+.cartP {
+    margin: 0;
+}
+
+.cartIconEmpty {
+    color: white;
+    font-size: 4rem;
+    margin-bottom: 2rem;
 }

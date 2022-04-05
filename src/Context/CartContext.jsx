@@ -20,12 +20,16 @@ export const CartContextProvider = ({ children }) => {
 
         if (findProd(prod.id)) {
 
-        const { cantidad } = prod
 
-        prod.cantidad =  prod.cantidad + cantidad
-        const newCartList = [ ...cartList ]
-        setCartList(newCartList)
+            const item = cartList.find((p) => p.id === prod.id)
+            const {cantidad}  = item 
 
+            item.cantidad =  prod.cantidad + cantidad
+            const newCartList = [ ...cartList ]
+            setCartList(newCartList)
+
+            console.log(item)
+            console.log(cantidad)
 
         } // AGREGAR PROD NUEVO A CARTLIST SI NO TIENE MISMO ID 
         
@@ -59,6 +63,14 @@ export const CartContextProvider = ({ children }) => {
    const deleteItem = (id) => {
 
       setCartList(cartList.filter((item) => item.id !== id))
+
+    }
+
+    // SUMA TOTAL
+
+    const total = () => {
+
+        return cartList.reduce((acum, prod) => acum = acum + (prod.price))
 
     }
 

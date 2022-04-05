@@ -8,26 +8,30 @@ const ItemDetail = ( {prodDetail} ) => {
 
   const { name, img, imgAlt, price, description, stock } = prodDetail;
 
-   const {addItem, cartList } = useCartContext()
+   const { addItem } = useCartContext()
+
+   const [contador, setContador ] = useState()
 
    const [buttonType, setButtonType] = useState('buttonInit')
 
 
    // FUNCION ONADD, LLAMA A FUNCION EN CARTCONTEXT PARA AGREGAR AL CARRITO
 
-   const onAdd = ( ) => {
-     
-    
+   function onAdd(cant) {
 
-    addItem({ ...prodDetail, cartList }) 
+    addItem( { ...prodDetail, cantidad: cant } ) 
+     
+    setContador(cant)
     
-   
-    // CAMBIO DE ESTADO
+    console.log(contador)
+    
+     // CAMBIO DE ESTADO
 
     setButtonType('cartButton')
 
   }
   
+
 
 
 
