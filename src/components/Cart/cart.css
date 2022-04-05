@@ -1,3 +1,8 @@
 .cart {
     color: white;
 }
+
+.imgProdCart {
+    width: 10%;
+    border-radius: 50%;
+}

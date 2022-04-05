@@ -1,6 +1,6 @@
 import './ItemDetail.css'
-import { useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import ItemCount from '../ItemCount/ItemCount';
 import { useCartContext } from '../../Context/CartContext';
 
@@ -13,18 +13,11 @@ const ItemDetail = ( {prodDetail} ) => {
    const [buttonType, setButtonType] = useState('buttonInit')
 
 
-   // FUNCION ONADD
+   // FUNCION ONADD, LLAMA A FUNCION EN CARTCONTEXT PARA AGREGAR AL CARRITO
 
-   const onAdd = (  ) => {
+   const onAdd = ( ) => {
      
-    const findProd = cartList.find((prod) => prod.id === prodDetail.id)
-
-    if (findProd) {
-
-     console.log( "hola" ) 
-
-    } 
-
+    
 
     addItem({ ...prodDetail, cartList }) 
     
@@ -40,24 +33,32 @@ const ItemDetail = ( {prodDetail} ) => {
 
 
   
-  // NUEVA VISTA A PARTIR DEL CAMBIO DE ESTADO
+  // NUEVA VISTA A PARTIR DEL CAMBIO DE ESTADO - CAMBIO DE BOTONES
   
   const GoCart = () => {
     return <>
   
-    <p> You have selected x cant </p>
-  
-    <Link to='/cart'>
+    <div>
+      
+       <p className='pCart'> You have selected X cant </p>
     
-    <button className="addCartBtn"> GO TO CART </button> 
+    </div>
+
+    <div className='btnGoCart'>
   
-    </Link>
-  
-    <Link to='/'>
+      <Link to='/cart'>
+      
+      <button className="addCartBtn"> GO TO CART </button> 
     
-    <button className="addCartBtn"> CONTINUE SHOPPING </button> 
-  
-    </Link>
+      </Link>
+    
+      <Link to='/'>
+      
+      <button className="addCartBtn"> CONTINUE SHOPPING </button> 
+    
+      </Link>
+
+    </div>
   
     </>
   }
@@ -72,32 +73,40 @@ const ItemDetail = ( {prodDetail} ) => {
     
     <div className='itemDetail'>
 
-                      
-                        
-        <h1 className='itemTitle'> {name} </h1>
-        <img src={img} alt={imgAlt} className="detailImg"/>
-        <p > {price} CHF </p>
-        <p > {description} </p>
+        <div>              
+          <img src={img} alt={imgAlt} className="detailImg"/>
+        </div>
+
+        <div className='textItemDetail'>    
+
+          <h1 className='itemTitle'> {name} </h1>
+          <p className='cartPrice'> {price} CHF </p>
+          <p className='cartDescription' > {description} </p>  
+
+
+          <div className='buttonsCart'>
+
+            { buttonType === 'buttonInit' ?
+
+              <ItemCount  stock={stock} initial= { 1 } onAdd= {onAdd} />
+              
+              :
+              
+              <GoCart />
+              
+            }
 
         </div>
 
-        <div className='buttonsCart'>
+      </div>
 
-          { buttonType === 'buttonInit' ?
-
-            <ItemCount  stock={stock} initial= { 1 } onAdd= {onAdd} />
-            
-            :
-            
-            <GoCart />
-            
-          }
-
-       </div>
+    </div>
 
     </>
   }
   
+
+
 
   
   return (

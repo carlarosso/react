@@ -1,20 +1,17 @@
-import { collection, getDocs, getFirestore, query, where } from 'firebase/firestore';
+import { collection, getDocs, getFirestore } from 'firebase/firestore';
 import React from 'react'
 import { useState, useEffect } from "react";
-import { useParams } from 'react-router-dom';
 import ItemList from '../ItemList/ItemList';
 import './ItemListContainer.css'
 
 
-function ItemListContainer ({}) {
+function ItemListContainer () {
   
   
   const [prods, setProds] = useState([]);
 
   const [loading, setLoading] = useState(true);
-   
-  const { id } = useParams()
-  
+     
    useEffect(() => {
 
       const bd = getFirestore()
@@ -28,7 +25,7 @@ function ItemListContainer ({}) {
     }, [])
 
 
-    useEffect(() => {
+    /* useEffect(() => {
 
       const bd = getFirestore()
       
@@ -39,7 +36,7 @@ function ItemListContainer ({}) {
       .catch((err) => console.log(err))
       .finally(() => setLoading(false));
 
-    }, [])
+    }, []) */
 
 
 

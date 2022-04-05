@@ -4,7 +4,7 @@ import './cart.css'
 
 const Cart = () => {
 
-  const { cartList, emptyCart  } = useCartContext()
+  const { cartList, emptyCart, deleteItem  } = useCartContext()
 
 
   return (
@@ -13,7 +13,20 @@ const Cart = () => {
 
     <h1> Productos seleccionados </h1>
 
-{/*     <div> { cartList.map(prod => <div key={prod.id} > name: {prod.name} cantidad: {prod.count} </div> )} </div>  */}   
+    <div> { cartList.map(prod => 
+      
+           <div key={prod.id} >
+             
+              <img src={prod.img} alt={prod.imgAlt} className="imgProdCart"/>
+              {prod.name} 
+              cantidad: {prod.count}
+
+              <button onClick={ () => deleteItem(prod.id) } className="addCartBtn" > DELETE ITEM </button>
+
+
+            </div> )}
+            
+    </div>  
 
 
     <button onClick={ emptyCart } className="addCartBtn" > EMPTY CART </button>
