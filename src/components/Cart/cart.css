@@ -3,7 +3,7 @@
 }
 
 .imgProdCart {
-    width: 25%;
+    width: 20%;
     border-radius: 50%;
 }
 
@@ -11,6 +11,10 @@
     display: inline-flex;
     align-items: center;
     margin: 2rem auto;
+}
+
+.oneItemCart {
+    width: 100%;
 }
 
 

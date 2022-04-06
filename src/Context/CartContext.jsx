@@ -17,19 +17,14 @@ export const CartContextProvider = ({ children }) => {
 
         //ELIMINAR DUPLICADOS SI ENCUENTRA MISMO ID
 
-
         if (findProd(prod.id)) {
 
-
-            const item = cartList.find((p) => p.id === prod.id)
-            const {cantidad}  = item 
-
-            item.cantidad =  prod.cantidad + cantidad
-            const newCartList = [ ...cartList ]
-            setCartList(newCartList)
-
-            console.log(item)
-            console.log(cantidad)
+            const producto = cartList.find((p) => p.id === prod.id)
+            const { cantidad } = producto
+            
+            producto.cantidad = prod.cantidad + cantidad
+            const newCart = [ ...cartList ]
+            setCartList(newCart)
 
         } // AGREGAR PROD NUEVO A CARTLIST SI NO TIENE MISMO ID 
         
@@ -41,10 +36,18 @@ export const CartContextProvider = ({ children }) => {
         
     }
 
+    const cantidad = () => {
+        return cartList.reduce((acum, prod) => acum += prod.cantidad, 0)
+    } 
+
+
+
     // VACIAR CARRITO
 
     const emptyCart = () => {
+
         setCartList([])
+
     }
 
 
@@ -54,6 +57,7 @@ export const CartContextProvider = ({ children }) => {
     const findProd = (id) => {
         
        return cartList.find((item) => item.id === id)
+
     }
 
     
@@ -80,7 +84,8 @@ export const CartContextProvider = ({ children }) => {
         cartList,
         addItem,
         emptyCart,
-        deleteItem
+        deleteItem,
+        cantidad
    }} > 
     
         { children } 

@@ -19,12 +19,12 @@ const ItemDetail = ( {prodDetail} ) => {
 
    function onAdd(cant) {
 
-    addItem( { ...prodDetail, cantidad: cant } ) 
-     
     setContador(cant)
     
-    console.log(contador)
+    addItem( { ...prodDetail, cantidad: cant } ) 
+
     
+        
      // CAMBIO DE ESTADO
 
     setButtonType('cartButton')
@@ -44,7 +44,7 @@ const ItemDetail = ( {prodDetail} ) => {
   
     <div>
       
-       <p className='pCart'> You have selected X cant </p>
+       <p className='pCart'> You have selected {contador} combos </p>
     
     </div>
 
@@ -100,9 +100,9 @@ const ItemDetail = ( {prodDetail} ) => {
               
             }
 
-        </div>
+          </div>
 
-      </div>
+        </div>
 
     </div>
 

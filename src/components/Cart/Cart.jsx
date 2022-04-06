@@ -10,6 +10,10 @@ const Cart = () => {
 
   const { cartList, emptyCart, deleteItem  } = useCartContext()
 
+
+
+  // RETURN CUANDO HAY ITEMS EN CARRITO
+
   const FullCart = () => {
     return <>
               
@@ -22,18 +26,24 @@ const Cart = () => {
             
                 <div className='itemCart' key={prod.id} >
 
-                  <div className='itemCartDesc'>
+                  <div className='oneItemCart'>
                   
                     <img src={prod.img} alt={prod.imgAlt} className="imgProdCart"/>
-                    <h2> {prod.name} </h2>
-                    <p className='cartP'> cantidad: {prod.count} </p>
+
+                    <div className='itemCartDesc'>
+                    
+                      <h2> {prod.name} </h2>
+                      <p className='cartP'> Quantity: {prod.cant} </p>
+                      <p className='cartP'> Price: {prod.price} </p>
+                    
+                    </div>
 
                   </div>
 
                   <button onClick={ () => deleteItem(prod.id) } className="addCartBtn" > DELETE ITEM </button>
 
 
-                  </div> )}
+                </div> )}
                   
           </div>  
 
@@ -54,28 +64,39 @@ const Cart = () => {
 
   }
 
-  return <>
-   
-   { cartList <= 0 ? (
-   
-        <> 
-          
-        <h1 className='itemTitle cartTitle'> Your cart is empty </h1>
+  // CUANDO EL CARRITO ESTÁ VACIO
 
-        <div className="cartIconEmpty">
+  const EmptyCart = () => {
 
-            <FontAwesomeIcon icon={solid('frown')} />
+    return <>
+    
+          <h1 className='itemTitle cartTitle'> Your cart is empty </h1>
 
-        </div>
+          <div className="cartIconEmpty">
 
-        <Link to='/'>
-                
+              <FontAwesomeIcon icon={solid('frown')} />
+
+          </div>
+
+          <Link to='/'>
+                  
                 <button className="addCartBtn"> SHOP NOW </button> 
 
           </Link >
-          
-          </>
-        
+    
+    </>
+
+  }
+
+
+
+  return <>
+   
+   { cartList <= 0 ? (
+
+      
+      <EmptyCart />      
+
      )
 
      :

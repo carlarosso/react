@@ -1,6 +1,7 @@
-import { collection, getDocs, getFirestore } from 'firebase/firestore';
+import { collection, getDocs, getFirestore, query, where } from 'firebase/firestore';
 import React from 'react'
 import { useState, useEffect } from "react";
+import { useParams } from 'react-router-dom';
 import ItemList from '../ItemList/ItemList';
 import './ItemListContainer.css'
 
@@ -11,32 +12,37 @@ function ItemListContainer () {
   const [prods, setProds] = useState([]);
 
   const [loading, setLoading] = useState(true);
-     
-   useEffect(() => {
 
-      const bd = getFirestore()
+    
+  const {prodCategoria} = useParams()
+  
+  useEffect(() => {
+    
+
+    async function getAll() {
       
-      const queryCollection = collection (bd, 'productos') 
-      getDocs(queryCollection)
-      .then(resp => setProds(resp.docs.map(prod => ( { id: prod.id, ...prod.data() } ) )) )
-      .catch((err) => console.log(err))
-      .finally(() => setLoading(false));
+      try {
+        const db = getFirestore()
+        const queryCollection =  collection(db, 'productos')
+        
+        const filterQuery = prodCategoria ? query(queryCollection, where('categoria', '==', prodCategoria)) : queryCollection
 
-    }, [])
+        
+          const response = await getDocs(filterQuery)
+          setProds(response.docs.map( prod => ({ id: prod.id, ...prod.data() }) ));
+          setLoading(false);
+
+      } catch (error) {
+        
+      }
+            
+    }
+
+    getAll();
+
+  }, [prodCategoria])
 
 
-    /* useEffect(() => {
-
-      const bd = getFirestore()
-      
-      const queryCollection = collection (bd, 'productos') 
-      const queryFilter = query(queryCollection, where('categoria', '==', 'sweet') )
-      getDocs(queryFilter)
-      .then(resp => setProds(resp.docs.map(prod => ( { id: prod.id, ...prod.data() } ) )) )
-      .catch((err) => console.log(err))
-      .finally(() => setLoading(false));
-
-    }, []) */
 
 
 

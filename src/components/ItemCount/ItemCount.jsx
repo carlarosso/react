@@ -1,4 +1,3 @@
-import React from "react";
 import { useState } from "react";
 import "./ItemCount.css";
 
@@ -18,6 +17,11 @@ export const ItemCount = ( { stock, initial, onAdd } ) => {
     }
   };
 
+  const add = () => {
+
+    onAdd(count)
+
+  }
 
 
     return (
@@ -31,7 +35,7 @@ export const ItemCount = ( { stock, initial, onAdd } ) => {
        
          <div>
          
-         <button onClick={onAdd} className="addCartBtn"> ADD TO CART </button> 
+         <button onClick={add} className="addCartBtn" > ADD TO CART </button> 
 
          </div>
     
