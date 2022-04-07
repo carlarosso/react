@@ -22,6 +22,7 @@ function ItemListContainer () {
     async function getAll() {
       
       try {
+        
         const db = getFirestore()
         const queryCollection =  collection(db, 'productos')
         

@@ -20,11 +20,12 @@ export const CartContextProvider = ({ children }) => {
         if (findProd(prod.id)) {
 
             const producto = cartList.find((p) => p.id === prod.id)
-            const { cantidad } = producto
+            const { cant } = producto
             
-            producto.cantidad = prod.cantidad + cantidad
+            producto.cant = prod.cant + cant
             const newCart = [ ...cartList ]
             setCartList(newCart)
+            console.log(cant)
 
         } // AGREGAR PROD NUEVO A CARTLIST SI NO TIENE MISMO ID 
         

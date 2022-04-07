@@ -23,6 +23,9 @@ const ItemDetail = ( {prodDetail} ) => {
     
     addItem( { ...prodDetail, cantidad: cant } ) 
 
+
+    console.log(cant)
+
     
         
      // CAMBIO DE ESTADO
