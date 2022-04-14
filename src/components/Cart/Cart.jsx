@@ -128,7 +128,12 @@ const Cart = () => {
       addDoc(queryCollection, orden)
       .then(( {id} ) => console.log(id))
 
-      console.log(db)
+      return <>
+      <p> Su orden es {orden.id} </p>
+
+
+      </>
+
   }
 
 

@@ -14,7 +14,7 @@ const NavBar = () => {
       <div className="imgLogo">
 
         <NavLink to='/'>
-           <img src={process.env.PUBLIC_URL + "/LOGO2-min.png"} alt="Brand Logo" className="logoMenu"/>
+           <img src={process.env.PUBLIC_URL + "https://i.postimg.cc/Pq0FxqG3/LOGO2-min.png"} alt="Brand Logo" className="logoMenu"/>
         </NavLink>
       
       </div>
