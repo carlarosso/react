@@ -23,7 +23,7 @@ const Cart = () => {
       <div className='cart'>
 
                 
-          <h1 className='itemTitle cartTitle'> Productos seleccionados </h1>
+          <h1 className='itemTitle cartTitle'> SELECTED PRODUCTS </h1>
 
           <div className='cartList'> { cartList.map(prod => 
             
