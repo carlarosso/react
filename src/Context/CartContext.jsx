@@ -20,12 +20,12 @@ export const CartContextProvider = ({ children }) => {
         if (findProd(prod.id)) {
 
             const producto = cartList.find((p) => p.id === prod.id)
-            const { cant } = producto
+            const { cantidad } = producto
             
-            producto.cant = prod.cant + cant
+            producto.cantidad = prod.cantidad + cantidad
             const newCart = [ ...cartList ]
             setCartList(newCart)
-            console.log(cant)
+            console.log(cantidad)
 
         } // AGREGAR PROD NUEVO A CARTLIST SI NO TIENE MISMO ID 
         
@@ -40,8 +40,8 @@ export const CartContextProvider = ({ children }) => {
     const cantidad = () => {
         return cartList.reduce((acum, prod) => acum += prod.cantidad, 0)
     } 
-
-
+    
+    
 
     // VACIAR CARRITO
 
@@ -75,9 +75,10 @@ export const CartContextProvider = ({ children }) => {
 
     const total = () => {
 
-        return cartList.reduce((acum, prod) => acum = acum + (prod.price))
+            return cartList.reduce((acum, prod) => acum = acum + (prod.price * prod.cantidad), 0)
 
     }
+
 
 
   return (
@@ -86,7 +87,8 @@ export const CartContextProvider = ({ children }) => {
         addItem,
         emptyCart,
         deleteItem,
-        cantidad
+        cantidad,
+        total
    }} > 
     
         { children } 

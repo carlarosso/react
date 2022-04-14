@@ -8,10 +8,11 @@ import './cart.css'
 
 const Cart = () => {
 
-  const { cartList, emptyCart, deleteItem  } = useCartContext()
+  const { cartList, emptyCart, deleteItem, total  } = useCartContext()
 
 
 
+ 
   // RETURN CUANDO HAY ITEMS EN CARRITO
 
   const FullCart = () => {
@@ -22,7 +23,7 @@ const Cart = () => {
                 
           <h1 className='itemTitle cartTitle'> Productos seleccionados </h1>
 
-          <div> { cartList.map(prod => 
+          <div className='cartList'> { cartList.map(prod => 
             
                 <div className='itemCart' key={prod.id} >
 
@@ -32,10 +33,13 @@ const Cart = () => {
 
                     <div className='itemCartDesc'>
                     
-                      <h2> {prod.name} </h2>
-                      <p className='cartP'> Quantity: {prod.cant} </p>
-                      <p className='cartP'> Price: {prod.price} </p>
-                    
+                      <h2 className='prodName'> {prod.name} </h2>
+
+                      <div className='qandp'>
+                        <p className='cartP'> Quantity: {prod.cantidad} </p>
+                        <p className='cartP'> Price: CHF {prod.price} </p>
+                      </div>
+
                     </div>
 
                   </div>
@@ -47,6 +51,13 @@ const Cart = () => {
                   
           </div>  
 
+          <div>
+            <p className='cartTotal'> Total: CHF {total()} </p>
+          </div>
+          
+
+          <div className='btnsCart'>
+
 
           <button onClick={ emptyCart } className="addCartBtn" > EMPTY CART </button>
 
@@ -56,6 +67,9 @@ const Cart = () => {
 
           </Link >
 
+          <button className="addCartBtn" onClick={order} > FINISH YOUR ORDER </button> 
+
+          </div>
 
 
       </div>
@@ -86,6 +100,12 @@ const Cart = () => {
     
     </>
 
+  }
+
+
+  function order(e) {
+    
+    console.log("compra")
   }
 
 
