@@ -33,6 +33,42 @@ const ItemDetail = ( {prodDetail} ) => {
     setButtonType('cartButton')
 
   }
+
+
+
+  const ContadorCombo = () => {
+
+    return <>
+
+      { contador === 1 ?
+
+        <>
+          
+          <div>
+          
+            <p className='pCart'> You have selected {contador} combo </p>
+      
+          </div>      
+
+        </>        
+            
+          :
+
+        <>     
+
+          <div>
+          
+            <p className='pCart'> You have selected {contador} combos </p>
+              
+          </div>
+        
+        </> 
+
+      }
+
+    </>
+
+  }
   
 
 
@@ -44,12 +80,9 @@ const ItemDetail = ( {prodDetail} ) => {
   
   const GoCart = () => {
     return <>
-  
-    <div>
-      
-       <p className='pCart'> You have selected {contador} combos </p>
-    
-    </div>
+
+    <ContadorCombo />
+
 
     <div className='btnGoCart'>
   
@@ -89,6 +122,7 @@ const ItemDetail = ( {prodDetail} ) => {
           <h1 className='itemTitle'> {name} </h1>
           <p className='cartPrice'> {price} CHF </p>
           <p className='cartDescription' > {description} </p>  
+
 
 
           <div className='buttonsCart'>

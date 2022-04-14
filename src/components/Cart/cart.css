@@ -37,6 +37,7 @@
     width: 50%;
     display: flex;
     margin: 0 auto;
+    text-align: initial;
 }
 
 .qandp {

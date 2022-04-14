@@ -3,6 +3,8 @@ import { useCartContext } from '../../Context/CartContext'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { solid } from '@fortawesome/fontawesome-svg-core/import.macro'
+import { getFirestore, collection, addDoc } from "firebase/firestore";
+
 import './cart.css'
 
 
@@ -104,8 +106,29 @@ const Cart = () => {
 
 
   function order(e) {
-    
-    console.log("compra")
+
+    let orden = {}
+
+      orden.buyer = {name: 'Nombre', email: 'email', phone: 'phone'}  
+      orden.totalPrice = total()
+      
+      orden.items = cartList.map(itemsCart => {
+
+        const id = itemsCart.id
+        const name = itemsCart.name
+        const price = itemsCart.price * itemsCart.cantidad
+      
+        return {id, name, price}
+
+        } 
+      )
+
+      const db = getFirestore()
+      const queryCollection = collection(db, 'orderReady')
+      addDoc(queryCollection, orden)
+      .then(( {id} ) => console.log(id))
+
+      console.log(db)
   }
 
 

@@ -23,7 +23,9 @@
 
 .btnGoCart {
     display: inline-flex;
-    justify-content: center;
+    justify-content: space-evenly;
+    width: 80%;
+    margin: 2rem auto;
 }
 
 .cartDescription {
