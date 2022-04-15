@@ -33,11 +33,10 @@ const NavBar = () => {
           </NavLink>
 
           
-          <NavLink to='categoria/savory' className="menuA"> Savory </NavLink>
-          <NavLink to='categoria/sweet' className="menuA"> Sweet </NavLink>
+          <NavLink to='/categoria/savory' className="menuA"> Savory </NavLink>
+          <NavLink to='/categoria/sweet' className="menuA"> Sweet </NavLink>
           
-             <NavLink to='/detail' element={ <ItemDetailContainer /> }  >  
-                      
+          <NavLink to='/detail' element={ <ItemDetailContainer /> }  >                     
           </NavLink>
 
           <NavLink to='/cart' className="menuA"> 

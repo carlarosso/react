@@ -25,7 +25,6 @@ export const CartContextProvider = ({ children }) => {
             producto.cantidad = prod.cantidad + cantidad
             const newCart = [ ...cartList ]
             setCartList(newCart)
-            console.log(cantidad)
 
         } // AGREGAR PROD NUEVO A CARTLIST SI NO TIENE MISMO ID 
         
@@ -75,7 +74,7 @@ export const CartContextProvider = ({ children }) => {
 
     const total = () => {
 
-            return cartList.reduce((acum, prod) => acum = acum + (prod.price * prod.cantidad), 0)
+            return cartList.reduce((acum, prod) => acum + (prod.price * prod.cantidad), 0)
 
     }
 

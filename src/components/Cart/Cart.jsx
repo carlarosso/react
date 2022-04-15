@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useCartContext } from '../../Context/CartContext'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -9,10 +9,36 @@ import './cart.css'
 
 
 const Cart = () => {
-
+  
   const { cartList, emptyCart, deleteItem, total  } = useCartContext()
-
-
+  
+  
+  const [buttonType, setButtonType] = useState('buttonInit')
+  
+  
+  // CUANDO EL CARRITO ESTÁ VACIO
+  
+  const EmptyCart = () => {
+  
+    return <>
+    
+          <h1 className='itemTitle cartTitle'> Your cart is empty </h1>
+  
+          <div className="cartIconEmpty">
+  
+              <FontAwesomeIcon icon={solid('frown')} />
+  
+          </div>
+  
+          <Link to='/'>
+                  
+                <button className="addCartBtn"> SHOP NOW </button> 
+  
+          </Link >
+    
+    </>
+  
+  }
 
  
   // RETURN CUANDO HAY ITEMS EN CARRITO
@@ -79,33 +105,19 @@ const Cart = () => {
     </>
 
   }
+  
 
-  // CUANDO EL CARRITO ESTÁ VACIO
+  // FUNCION PARA CREAR ORDEN
 
-  const EmptyCart = () => {
+  function order() {
 
-    return <>
-    
-          <h1 className='itemTitle cartTitle'> Your cart is empty </h1>
+      // CAMBIO DE ESTADO
 
-          <div className="cartIconEmpty">
-
-              <FontAwesomeIcon icon={solid('frown')} />
-
-          </div>
-
-          <Link to='/'>
-                  
-                <button className="addCartBtn"> SHOP NOW </button> 
-
-          </Link >
-    
-    </>
+      setButtonType('getForm')
 
   }
 
-
-  function order(e) {
+  const Form = () => {
 
     let orden = {}
 
@@ -126,21 +138,52 @@ const Cart = () => {
       const db = getFirestore()
       const queryCollection = collection(db, 'orderReady')
       addDoc(queryCollection, orden)
-      .then(( {id} ) => console.log(id))
-
-      return <>
-      <p> Su orden es {orden.id} </p>
+      .then(( {id} ) => (id))
 
 
-      </>
+    return <>
+
+    <form action="get">
+
+        <label htmlFor=""></label>
+        <input type="text" />
+
+
+    </form>
+     <p>Your order id is {orden.items.id}  </p>
+    
+    </>
+  }
+
+
+
+  const ChangeType = () => {
+
+    return <>
+
+      { buttonType === 'buttonInit' ? (
+
+        
+        <FullCart />      
+
+      )
+
+      :
+
+        <Form />
+      } 
+
+    </>
 
   }
 
 
 
+  // CART RETURN
+
   return <>
    
-   { cartList <= 0 ? (
+   { cartList <= 0  ? (
 
       
       <EmptyCart />      
@@ -149,12 +192,11 @@ const Cart = () => {
 
      :
 
-     (
+     ( 
 
-      <FullCart />      
+      <ChangeType />
 
       )
-
     }
 
   </>

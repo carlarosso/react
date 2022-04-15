@@ -15,7 +15,7 @@ const Item = ( {prod} ) => {
         <CardGroup>
           <Card className="singleCard, card">
             <Card.Body className="cardBody">
-              <Link to={`detail/${id}`} className="links">    
+              <Link to={`/detail/${id}`} className="links">    
                   <h2 className="cardTitle">{`${name}`}</h2>
 
 
