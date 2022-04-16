@@ -13,8 +13,8 @@
 
 Las librerías usadas en este proyecto fueron:
 
-| Library | LINK | VERSION | 
-| ------ | ------ | ------ |
-| Firebase | https://firebase.google.com/ | 9.6.10 |
-| Bootstrap | https://getbootstrap.com/ | 5.1.3 |
-| FontAwesome | https://fontawesome.com/ | |
+| Library | LINK | VERSION | JUSTIFICACIÓN |
+| ------ | ------ | ------ | ------ |
+| Firebase | https://firebase.google.com/ | 9.6.10 | Base de datos para guardar la lista de productos y las órdenes generadas |
+| Bootstrap | https://getbootstrap.com/ | 5.1.3 | Darle estilo a las cards que se muestran en el index |
+| FontAwesome | https://fontawesome.com/ | | Utilizar íconos en Cart y CartWidget |
