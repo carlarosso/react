@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { useCartContext } from '../../Context/CartContext'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -9,8 +9,12 @@ import './cart.css'
 
 
 const Cart = () => {
+
+  const [dataForm, setDataForm] = useState({name: '', email: '', reemail: '', city: '' })
   
   const { cartList, emptyCart, deleteItem, total  } = useCartContext()
+
+  const  [ orderId, setOrderId ] = useState();
   
   
   const [buttonType, setButtonType] = useState('buttonInit')
@@ -18,7 +22,7 @@ const Cart = () => {
   
   // CUANDO EL CARRITO ESTÁ VACIO
   
-  const EmptyCart = () => {
+  const NoItemCart = () => {
   
     return <>
     
@@ -95,33 +99,29 @@ const Cart = () => {
 
           </Link >
 
-          <button className="addCartBtn" onClick={order} > FINISH YOUR ORDER </button> 
+          <button className="addCartBtn" onClick={() => setButtonType('getForm')}  > FINISH YOUR ORDER </button> 
 
           </div>
 
 
       </div>
+
               
     </>
 
   }
   
 
-  // FUNCION PARA CREAR ORDEN
 
-  function order() {
-
-      // CAMBIO DE ESTADO
-
-      setButtonType('getForm')
-
-  }
-
-  const Form = () => {
-
+  
+  
+  // FORMULARIO
+  
+  const CreateOrder = () => {
+    
     let orden = {}
-
-      orden.buyer = {name: 'Nombre', email: 'email', phone: 'phone'}  
+    
+      orden.buyer = dataForm
       orden.totalPrice = total()
       
       orden.items = cartList.map(itemsCart => {
@@ -138,31 +138,75 @@ const Cart = () => {
       const db = getFirestore()
       const queryCollection = collection(db, 'orderReady')
       addDoc(queryCollection, orden)
-      .then(( {id} ) => (id))
+      .then(({id}) => console.log( id ))
+      .catch((err) => console.log(err))
+      .finally(() => (emptyCart()))
 
 
+      
     return <>
-
-    <form action="get">
-
-        <label htmlFor=""></label>
-        <input type="text" />
-
-
-    </form>
-     <p>Your order id is {orden.items.id}  </p>
     
+          <form onSubmit={CreateOrder} >
+
+            <input type="text" 
+                  name= "name"
+                  placeholder='Enter your name'
+                  value={dataForm.name}    
+                  onChange={handleChange}
+            />
+
+            <input type="text" 
+                  name= "email"
+                  placeholder='Enter your email'
+                  value={dataForm.email}  
+                  onChange={handleChange}
+      
+            />
+
+            <input type="text" 
+                  name= "reemail"
+                  placeholder='Re-enter your email'
+                  value={dataForm.reemail}  
+                  onChange={handleChange}
+      
+            />
+            
+            <input type="text" 
+                  name= "city"
+                  placeholder='Enter your city'
+                  value={dataForm.city}    
+                  onChange={handleChange}
+   
+            />    
+
+          </form>
+
+          <button className='addCartBtn' onClick={ CreateOrder }> Finish your order </button>
+     
     </>
   }
 
+  // HANDLE CHANGE IN FORM
+  
+  const handleChange = (e) => {
 
+    setDataForm({
+      ...dataForm,
+      [e.target.name]: e.target.value
+
+    })
+
+  }
+
+
+  // CHANGE BETWEEN FULL CART || FORM SUB
 
   const ChangeType = () => {
 
     return <>
 
       { buttonType === 'buttonInit' ? (
-
+        
         
         <FullCart />      
 
@@ -170,7 +214,7 @@ const Cart = () => {
 
       :
 
-        <Form />
+        <CreateOrder />
       } 
 
     </>
@@ -183,10 +227,10 @@ const Cart = () => {
 
   return <>
    
-   { cartList <= 0  ? (
+   { cartList <= 0 && buttonType === 'buttonInit' ? (
 
       
-      <EmptyCart />      
+      <NoItemCart />      
 
      )
 
