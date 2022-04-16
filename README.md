@@ -9,7 +9,7 @@
 
  Los productos que se muestran forman parte de un emprendimiento ficticio de venta y envío de desayunos en Suiza. Se incluyeron los combos disponibles, el detalle de cada uno, y se le agregó la funcionalidad de agregar al carrito y terminar la compra.
  
-## Librarias
+## Librerias
 
 Las librerías usadas en este proyecto fueron:
 
