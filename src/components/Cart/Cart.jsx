@@ -132,15 +132,15 @@ const Cart = () => {
       
         return {id, name, price}
 
-        } 
-      )
+      } 
+    )
 
       const db = getFirestore()
-      const queryCollection = collection(db, 'orderReady')
-      addDoc(queryCollection, orden)
-      .then(({id}) => console.log( id ))
-      .catch((err) => console.log(err))
-      .finally(() => (emptyCart()))
+      const queryCollectionItems = collection(db, 'orderReady')
+      addDoc(queryCollectionItems, orden)
+        .then(({id}) => setOrderId( id ))
+        .catch((err) => console.log(err))
+        .finally(() => (emptyCart()))
 
 
       
@@ -180,8 +180,13 @@ const Cart = () => {
             />    
 
           </form>
+          
 
-          <button className='addCartBtn' onClick={ CreateOrder }> Finish your order </button>
+            <button className='addCartBtn' onClick={ CreateOrder }> Finish your order </button>
+
+            
+
+        
      
     </>
   }
