@@ -118,6 +118,7 @@ const Cart = () => {
   // FORMULARIO
   
   const CreateOrder = () => {
+
     
     let orden = {}
     
@@ -134,56 +135,73 @@ const Cart = () => {
 
       } 
     )
-
-      const db = getFirestore()
-      const queryCollectionItems = collection(db, 'orderReady')
-      addDoc(queryCollectionItems, orden)
-        .then(({id}) => setOrderId( id ))
-        .catch((err) => console.log(err))
-        .finally(() => (emptyCart()))
-
-
+    
+    
+    const db = getFirestore()
+    const queryCollectionItems = collection(db, 'orderReady')
+    addDoc(queryCollectionItems, orden)
+    .then(({id}) => setOrderId( id ))
+    .catch((err) => console.log(err))
+    .finally(() => (emptyCart()))
+    
+    
+    // HANDLE CHANGE IN FORM
+    
+    const handleChange = (e) => {
+    
+      setDataForm({
+        ...dataForm,
+        [e.target.name]: e.target.value
+    
+      })
+    
+    }
       
     return <>
+
+          <h1 className="cardTitle"> Your ID is {orderId} </h1>
     
           <form onSubmit={CreateOrder} >
 
             <input type="text" 
-                  name= "name"
+                  name= 'name'
                   placeholder='Enter your name'
                   value={dataForm.name}    
                   onChange={handleChange}
             />
 
-            <input type="text" 
-                  name= "email"
+            <input 
+                  type="text" 
+                  name= 'email'
                   placeholder='Enter your email'
                   value={dataForm.email}  
                   onChange={handleChange}
       
             />
 
-            <input type="text" 
-                  name= "reemail"
+            <input 
+                  type="text" 
+                  name= 'reemail'
                   placeholder='Re-enter your email'
                   value={dataForm.reemail}  
                   onChange={handleChange}
       
             />
             
-            <input type="text" 
-                  name= "city"
+            <input 
+                  type="text" 
+                  name= 'city'
                   placeholder='Enter your city'
                   value={dataForm.city}    
                   onChange={handleChange}
    
             />    
 
-          </form>
-          
+            <br></br>
 
             <button className='addCartBtn' onClick={ CreateOrder }> Finish your order </button>
 
+          </form>
             
 
         
@@ -191,17 +209,6 @@ const Cart = () => {
     </>
   }
 
-  // HANDLE CHANGE IN FORM
-  
-  const handleChange = (e) => {
-
-    setDataForm({
-      ...dataForm,
-      [e.target.name]: e.target.value
-
-    })
-
-  }
 
 
   // CHANGE BETWEEN FULL CART || FORM SUB
@@ -218,8 +225,12 @@ const Cart = () => {
       )
 
       :
-
+        
+      
         <CreateOrder />
+        
+
+      
       } 
 
     </>

@@ -6,7 +6,7 @@ import { doc, getDoc, getFirestore } from 'firebase/firestore';
 
 
 
-function ItemDetailContainer ({}) {
+function ItemDetailContainer () {
 
   const [prod, setProd] = useState({});
 
@@ -27,10 +27,6 @@ function ItemDetailContainer ({}) {
       .finally(() => setLoading(false));
 
     }, [prodId])
-
-   // console.log(prod)
-
-
 
 
   return (
